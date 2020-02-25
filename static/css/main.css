@@ -1,0 +1,46 @@
+html{
+    margin: 15px;
+}
+body {
+    background-color: rgb(212, 195, 195);
+}
+
+#video {
+    display: flex;
+}
+
+#left, #right {
+    width: 100%;
+}
+#myVideo{
+    border: 2px solid red;
+    float: left;
+    width: 100%;
+}
+
+#canvas {
+    border: 2px solid blue;
+    float: right;
+    width: 100%;
+}
+
+h1, h3, #response_div{
+    text-align: center;
+}
+
+#serverResponse {
+    font-weight: bold;
+}
+
+#myButton {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
