@@ -2,4 +2,4 @@
 
 ### Reads QR codes and displays the output
 
-deployed on : qr.ttstartups.com
+##### deployed on : [qr.ttstartups.com](qr.ttstartups.com)
