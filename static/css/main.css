@@ -1,35 +1,15 @@
 html{
     margin: 15px;
 }
+
 body {
-    background-color: rgb(212, 195, 195);
-}
-
-#video {
-    display: flex;
-}
-
-#left, #right {
-    width: 100%;
-}
-#myVideo{
-    border: 2px solid red;
-    float: left;
-    width: 100%;
-}
-
-#canvas {
-    border: 2px solid blue;
-    float: right;
-    width: 100%;
-}
-
-h1, h3, #response_div{
     text-align: center;
+    background-color: rgb(212, 195, 195);
 }
 
 #serverResponse {
     font-weight: bold;
+    font-size: 30px;
 }
 
 #myButton {
@@ -40,7 +20,10 @@ h1, h3, #response_div{
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 30px;
+    font-weight: bold;
     margin: 4px 2px;
     cursor: pointer;
+    width: 260px;
+    height: 120px;
   }

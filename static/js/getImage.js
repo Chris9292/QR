@@ -9,13 +9,12 @@ function postFile(file) {
     let formdata = new FormData();
     formdata.append("image", file);
     let xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://127.0.0.1:5000/image', true);
+    xhr.open('POST', 'https://qr.ttstartups.com/image', true);
     xhr.onload = function () {
         if (this.status === 200)
             console.log(this.response);
         else
             console.error(xhr);
-        
         //return response text
         const serverResponse = document.getElementById("serverResponse");
         serverResponse.innerHTML = this.responseText;
@@ -38,19 +37,27 @@ function sendImagefromCanvas() {
 
 //Take a picture on click
 b.onclick = function() {
-    console.log('click');
     sendImagefromCanvas();
 };
 
 window.onload = function () {
+    // check if mobile device
+    var ismobile = false;
 
+    if (/Mobi/.test(navigator.userAgent))
+   	 // mobile!
+	ismobile=true;
+
+    var params = {video: true, audio: false};
     //Get camera video
-    navigator.mediaDevices.getUserMedia({video: {width: 1280, height: 720}, audio: false})
+    if (ismobile)
+	params["video"] = {facingMode: {exact: "environment"}};
+
+    navigator.mediaDevices.getUserMedia(params)
         .then(stream => {
             v.srcObject = stream;
         })
         .catch(err => {
-            console.log('navigator.getUserMedia error: ', err)
+            console.log('navigator.getUserMedia error: ', err);
         });
-
 };
