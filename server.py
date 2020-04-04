@@ -1,11 +1,13 @@
 from flask import Flask, request, Response, jsonify, redirect, url_for, render_template
+from functions import *
 import time
 import numpy as np
 import cv2
 import pyzbar.pyzbar as pyzbar
-import requests
 
 app = Flask(__name__)
+
+
 
 @app.route('/')
 def index():
@@ -31,9 +33,11 @@ def image():
             # if QrCode: retrieve data from qrcode
                 data = obj.data.decode("ascii")
 
+
             response = {"Request type": request.method,
                         "Timestamp": time.strftime("%Y-%m-%d %H:%M"),
-                        "QrCode": data}
+                        "QrCode": data,
+                        "response status": fetch_ticket(data)}
 
             return response
         return "No QrCode scanned! Please try again."
