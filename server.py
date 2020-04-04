@@ -34,12 +34,11 @@ def image():
                 data = obj.data.decode("ascii")
 
 
-            response = {"Request type": request.method,
-                        "Timestamp": time.strftime("%Y-%m-%d %H:%M"),
-                        "QrCode": data,
+            response = {"Timestamp": time.strftime("%Y-%m-%d %H:%M"),
+                        "ticket ID": data,
                         "response status": fetch_ticket(data)}
 
-            return response
+            return jsonify(response)
         return "No QrCode scanned! Please try again."
 
 if __name__ == "__main__":
