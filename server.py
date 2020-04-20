@@ -1,5 +1,5 @@
 from flask import Flask, request, Response, jsonify, redirect, url_for, render_template
-from functions import *
+from functions import fetch_ticket
 import time
 import numpy as np
 import cv2
@@ -32,11 +32,10 @@ def image():
             # if QrCode: retrieve data from qrcode
                 data = obj.data.decode("ascii")
 
-
             response = {"Request type": request.method,
                         "Timestamp": time.strftime("%Y-%m-%d %H:%M"),
-                        "QrCode": data,
-                        "response status": fetch_ticket(data['id'])}
+                        "ticket ID": data,
+                        "response status": fetch_ticket(data)}
 
             return jsonify(response)
         return "No QrCode scanned! Please try again."
