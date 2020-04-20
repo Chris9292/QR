@@ -42,16 +42,16 @@ b.onclick = function() {
 
 window.onload = function () {
     // check if mobile device
-    var ismobile = false;
-
-    if (/Mobi/.test(navigator.userAgent))
+    //var ismobile = false;
+    var params = {video: true, audio: false};	
+    if (typeof window.orientation !== 'undefined')
+    //if (/Mobi/.test(navigator.userAgent))
    	 // mobile!
-	ismobile=true;
+	//ismobile=true;
+	    params["video"] = {facingMode: {exact: "environment"}};
 
-    var params = {video: true, audio: false};
     //Get camera video
-    if (ismobile)
-	params["video"] = {facingMode: {exact: "environment"}};
+    //if (ismobile)
 
     navigator.mediaDevices.getUserMedia(params)
         .then(stream => {

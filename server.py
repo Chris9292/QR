@@ -4,10 +4,9 @@ import time
 import numpy as np
 import cv2
 import pyzbar.pyzbar as pyzbar
+import requests
 
 app = Flask(__name__)
-
-
 
 @app.route('/')
 def index():
@@ -34,11 +33,12 @@ def image():
                 data = obj.data.decode("ascii")
 
 
-            response = {"Timestamp": time.strftime("%Y-%m-%d %H:%M"),
-                        "ticket ID": data,
-                        "response status": fetch_ticket(data)}
+            response = {"Request type": request.method,
+                        "Timestamp": time.strftime("%Y-%m-%d %H:%M"),
+                        "QrCode": data,
+                        "response status": fetch_ticket(data['id'])}
 
-            return jsonify(response)
+            return response
         return "No QrCode scanned! Please try again."
 
 if __name__ == "__main__":

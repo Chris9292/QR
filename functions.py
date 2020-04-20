@@ -1,7 +1,7 @@
 import requests
 
 # cloud functions
-# search for ticket with given ID
+# search for ticket with given ID and return the response status
 URL = "https://us-central1-qr-ttstartups.cloudfunctions.net/testFunc/api/tickets/"
 
 def fetch_ticket(id):
