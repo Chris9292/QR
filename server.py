@@ -38,7 +38,7 @@ def image():
                         "QrCode": data,
                         "response status": fetch_ticket(data['id'])}
 
-            return response
+            return jsonify(response)
         return "No QrCode scanned! Please try again."
 
 if __name__ == "__main__":
